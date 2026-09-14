@@ -46,7 +46,8 @@ h1 span { color: #53606a; font-family: Georgia, "Times New Roman", serif; font-s
 .contact { font-size: 13px; margin-top: 18px; display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
 .email { overflow-wrap: anywhere; }
 .contact-separator { color: #82909a; }
-.portrait { width: 140px; height: 140px; object-fit: cover; margin-top: 5px; }
+.profile-column { width: 140px; justify-self: end; text-align: center; }
+.portrait { display: block; width: 140px; height: 140px; object-fit: cover; margin: 5px auto 0; }
 .content-section { padding-top: 16px; }
 h2 { font-size: 24px; line-height: 1.5; font-weight: 600; letter-spacing: 1px; color: var(--ink); padding-bottom: 11px; border-bottom: 1px solid var(--line); }
 .author-note, .section-note { color: var(--muted); font-size: 12px; margin-top: 13px; line-height: 1.8; }
@@ -71,8 +72,8 @@ sup { font-size: .8em; line-height: 0; vertical-align: super; margin-left: 1px; 
 .patent-list p { color: var(--muted); font-size: 13px; line-height: 1.8; margin-top: 4px; }
 .site-footer { padding-block: 21px 27px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; gap: 20px; color: var(--muted); font-size: 12px; }
 .site-footer a { color: var(--muted); }
-.appreciation { padding-block: 2px 24px; }
-.likes-row { display: flex; align-items: center; gap: 17px; flex-wrap: wrap; }
+.appreciation { padding-block: 12px 0; }
+.likes-row { display: flex; flex-direction: column; align-items: center; gap: 7px; }
 .like-button { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 40px; padding: 7px 13px; border: 1px solid #bdccd7; border-radius: 4px; background: #fff; color: var(--link); font: inherit; font-size: 13px; cursor: pointer; touch-action: manipulation; }
 .like-button:hover:not(:disabled) { background: #f1f6f9; }
 .like-button:focus-visible { outline: 2px solid var(--link); outline-offset: 4px; }
@@ -80,9 +81,9 @@ sup { font-size: .8em; line-height: 0; vertical-align: super; margin-left: 1px; 
 .like-button[aria-busy="true"] { opacity: .65; }
 .like-button[aria-pressed="true"] { background: #f1f6f9; color: #245875; }
 .like-button[aria-pressed="true"] svg { fill: currentColor; }
-.like-total { color: var(--muted); font-size: 13px; }
+.like-total { color: var(--muted); font-size: 12px; }
 [data-like-count] { font-variant-numeric: tabular-nums; margin-left: 5px; color: var(--ink); }
-.like-status { font-size: 12px; color: var(--muted); line-height: 1.8; margin-top: 7px; }
+.like-status { font-size: 12px; color: var(--muted); line-height: 1.8; margin-top: 7px; overflow-wrap: anywhere; }
 .like-status:empty { display: none; }
 @media (max-width: 640px) {
   html { scroll-padding-top: 114px; }
@@ -96,6 +97,7 @@ sup { font-size: .8em; line-height: 0; vertical-align: super; margin-left: 1px; 
 @media (max-width: 700px) {
   .page-width { width: calc(100% - 44px); }
   .about { gap: 29px; grid-template-columns: minmax(0, 1fr) 112px; padding-block: 42px 34px; }
+  .profile-column { width: 112px; }
   .portrait { width: 112px; height: 112px; }
   h1 { font-size: 30px; }
   h1 span { font-size: 22px; margin-left: 7px; }
@@ -111,11 +113,17 @@ sup { font-size: .8em; line-height: 0; vertical-align: super; margin-left: 1px; 
   .site-name span { font-size: 11px; margin-left: 6px; }
   nav { gap: 19px; }
   nav a { font-size: 13px; }
-  .about { display: block; padding-block: 32px 33px; position: relative; }
-  .portrait { position: absolute; top: 33px; right: 0; width: 79px; height: 79px; margin: 0; }
-  h1 { font-size: 29px; letter-spacing: 1px; padding-right: 89px; margin-bottom: 8px; }
+  .about { grid-template-columns: minmax(0, 1fr) 112px; gap: 0 20px; padding-block: 32px 33px; }
+  .intro { display: contents; }
+  .intro > h1 { grid-column: 1; grid-row: 1; }
+  .intro > .affiliation { grid-column: 1; grid-row: 2; }
+  .intro > .bio, .intro > .contact { grid-column: 1 / -1; }
+  .intro > .affiliation + .bio { margin-top: 18px; }
+  .profile-column { grid-column: 2; grid-row: 1 / span 2; align-self: start; }
+  .portrait { width: 79px; height: 79px; margin: 0 auto; }
+  h1 { font-size: 29px; letter-spacing: 1px; padding-right: 0; margin-bottom: 8px; }
   h1 span { font-size: 21px; margin-left: 5px; white-space: nowrap; }
-  .affiliation { font-size: 12px; padding-right: 89px; min-height: 35px; margin-bottom: 20px; line-height: 1.8; }
+  .affiliation { font-size: 12px; padding-right: 0; min-height: 0; margin-bottom: 18px; line-height: 1.8; }
   .bio { font-size: 14px; line-height: 1.95; }
   .contact { font-size: 12px; gap: 12px; margin-top: 15px; }
   h2 { font-size: 23px; padding-bottom: 10px; }
@@ -136,10 +144,12 @@ sup { font-size: .8em; line-height: 0; vertical-align: super; margin-left: 1px; 
 @media (max-width: 370px) {
   .page-width { width: calc(100% - 32px); }
   .site-name span { display: none; }
-  .portrait { width: 68px; height: 68px; top: 35px; }
-  h1 { font-size: 27px; padding-right: 78px; }
+  .about { grid-template-columns: minmax(0, 1fr) 96px; gap: 0 16px; }
+  .profile-column { width: 96px; }
+  .portrait { width: 68px; height: 68px; }
+  h1 { font-size: 27px; padding-right: 0; }
   h1 span { font-size: 19px; margin-left: 4px; }
-  .affiliation { padding-right: 78px; font-size: 11px; }
+  .affiliation { padding-right: 0; font-size: 11px; }
   .contact { gap: 10px; }
 }
 @media (prefers-reduced-motion: reduce) {

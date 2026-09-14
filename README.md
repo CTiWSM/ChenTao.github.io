@@ -20,7 +20,7 @@
 
 修改 `docs/` 下的文件并提交至 `master`。GitHub Pages 发布源为 **Deploy from a branch → master → /docs**。
 
-论文署名中，`#` 表示共同第一作者，`*` 表示通讯作者，Tao Chen 加粗。更新内容时按正式论文和授权材料核对。
+论文署名中，`#` 表示同等贡献，`*` 表示通讯作者，Tao Chen 加粗。更新内容时按正式论文和授权材料核对。
 
 正文与语言切换无需构建步骤或 JavaScript 框架。点赞使用少量 JavaScript，通过 Cloudflare Worker 写入 D1；中英文共享累计数量。
 
