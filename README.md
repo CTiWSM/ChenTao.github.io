@@ -2,14 +2,19 @@
 
 [访问主页](https://ctiwsm.github.io/ChenTao.github.io/)
 
-中文静态学术主页，包含个人简介、教育背景、代表性论文与授权专利。
+中英文静态学术主页，包含个人简介、教育背景、代表性论文与授权专利。
+
+主网址默认显示 English；[中文页面](https://ctiwsm.github.io/ChenTao.github.io/zh.html)使用独立地址，不保存语言偏好。
 
 ## 文件
 
-- `docs/index.html`：页面内容。
+- `docs/index.html`：英文页面。
+- `docs/zh.html`：中文页面。
 - `docs/styles.css`：电脑与手机排版。
+- `docs/likes.js`：整站点赞交互。
 - `docs/assets/`：个人照片与网站图标。
 - `docs/.nojekyll`：直接发布静态文件。
+- `backend/`：Cloudflare Worker 源码、D1 初始化 SQL 与测试。
 
 ## 更新与发布
 
@@ -17,4 +22,6 @@
 
 论文署名中，`#` 表示共同第一作者，`*` 表示通讯作者，Tao Chen 加粗。更新内容时按正式论文和授权材料核对。
 
-本站无需构建步骤或 JavaScript 依赖。
+正文与语言切换无需构建步骤或 JavaScript 框架。点赞使用少量 JavaScript，通过 Cloudflare Worker 写入 D1；中英文共享累计数量。
+
+同一浏览器的标识用于减少重复点赞；清除存储、更换浏览器或主动生成新标识仍可能再次点赞，因此不是严格的独立访客统计。不要在仓库中提交凭据或数据库内容。

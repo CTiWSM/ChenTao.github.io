@@ -28,6 +28,12 @@ a:focus-visible { outline: 2px solid var(--link); outline-offset: 5px; border-ra
 nav { display: flex; align-items: center; gap: 29px; }
 nav a { color: var(--text); display: inline-flex; align-items: center; min-height: 44px; font-size: 14px; padding-inline: 3px; }
 nav a:hover { color: var(--link); }
+.section-nav { margin-left: auto; }
+.language-switch { gap: 9px; padding-left: 18px; border-left: 1px solid var(--line); }
+.language-switch a { font-size: 12px; padding-inline: 0; }
+.language-switch span { color: var(--muted); font-size: 12px; }
+.language-switch a[aria-current="page"] { color: var(--ink); font-weight: 650; }
+html[lang="en"] h1, html[lang="en"] h2 { letter-spacing: 0; }
 .about { display: grid; grid-template-columns: minmax(0, 1fr) 140px; gap: 57px; padding-block: 58px 43px; align-items: start; }
 h1 { color: var(--ink); font-size: 34px; font-weight: 650; line-height: 1.4; letter-spacing: 2px; margin-bottom: 8px; }
 h1 span { color: #53606a; font-family: Georgia, "Times New Roman", serif; font-size: 26px; font-weight: 400; letter-spacing: 0; margin-left: 10px; }
@@ -36,6 +42,7 @@ h1 span { color: #53606a; font-family: Georgia, "Times New Roman", serif; font-s
 .education { margin-top: 17px; line-height: 2; }
 .education strong { color: var(--ink); font-weight: 600; }
 .education-date { white-space: nowrap; }
+.education-degree { white-space: nowrap; }
 .contact { font-size: 13px; margin-top: 18px; display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
 .email { overflow-wrap: anywhere; }
 .contact-separator { color: #82909a; }
@@ -64,6 +71,28 @@ sup { font-size: .8em; line-height: 0; vertical-align: super; margin-left: 1px; 
 .patent-list p { color: var(--muted); font-size: 13px; line-height: 1.8; margin-top: 4px; }
 .site-footer { padding-block: 21px 27px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; gap: 20px; color: var(--muted); font-size: 12px; }
 .site-footer a { color: var(--muted); }
+.appreciation { padding-block: 2px 24px; }
+.likes-row { display: flex; align-items: center; gap: 17px; flex-wrap: wrap; }
+.like-button { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 40px; padding: 7px 13px; border: 1px solid #bdccd7; border-radius: 4px; background: #fff; color: var(--link); font: inherit; font-size: 13px; cursor: pointer; touch-action: manipulation; }
+.like-button:hover:not(:disabled) { background: #f1f6f9; }
+.like-button:focus-visible { outline: 2px solid var(--link); outline-offset: 4px; }
+.like-button:disabled { cursor: default; }
+.like-button[aria-busy="true"] { opacity: .65; }
+.like-button[aria-pressed="true"] { background: #f1f6f9; color: #245875; }
+.like-button[aria-pressed="true"] svg { fill: currentColor; }
+.like-total { color: var(--muted); font-size: 13px; }
+[data-like-count] { font-variant-numeric: tabular-nums; margin-left: 5px; color: var(--ink); }
+.like-status { font-size: 12px; color: var(--muted); line-height: 1.8; margin-top: 7px; }
+.like-status:empty { display: none; }
+@media (max-width: 640px) {
+  html { scroll-padding-top: 114px; }
+  .header-inner { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 0 20px; padding-block: 8px 5px; }
+  .site-name { grid-column: 1; grid-row: 1; }
+  .language-switch { grid-column: 2; grid-row: 1; padding-left: 0; border-left: 0; gap: 9px; }
+  .section-nav { grid-column: 1 / -1; grid-row: 2; margin: 0; justify-content: flex-start; gap: 24px; }
+  .section-nav a { min-height: 35px; }
+  .language-switch a { min-height: 35px; }
+}
 @media (max-width: 700px) {
   .page-width { width: calc(100% - 44px); }
   .about { gap: 29px; grid-template-columns: minmax(0, 1fr) 112px; padding-block: 42px 34px; }
@@ -75,7 +104,7 @@ sup { font-size: .8em; line-height: 0; vertical-align: super; margin-left: 1px; 
   .publication h3 { font-size: 16px; }
 }
 @media (max-width: 520px) {
-  html { scroll-padding-top: 81px; }
+  html { scroll-padding-top: 114px; }
   .page-width { width: calc(100% - 38px); }
   .header-inner { min-height: 61px; gap: 16px; }
   .site-name { font-size: 15px; }
@@ -118,7 +147,7 @@ sup { font-size: .8em; line-height: 0; vertical-align: super; margin-left: 1px; 
 }
 @media print {
   .page-width { width: 100%; max-width: none; }
-  .site-header, .skip-link, .site-footer a { display: none; }
+  .site-header, .skip-link, .site-footer a, .appreciation { display: none; }
   .about { padding-top: 0; padding-bottom: 20px; }
   .content-section { padding-top: 10px; }
   .publication-list > li, .patent-list > li { break-inside: avoid; }

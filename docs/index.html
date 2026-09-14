@@ -1,80 +1,85 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="陈涛，浙江大学机械工程学院博士研究生，研究兴趣为医学人工智能与机器人。个人学术主页，含论文与授权专利。">
+  <meta name="description" content="Tao Chen, PhD student in Mechanical Engineering at Zhejiang University. Research in medical artificial intelligence and robotics. Selected publications and granted patents.">
   <meta name="theme-color" content="#ffffff">
   <meta name="color-scheme" content="light">
-  <title>陈涛 · 个人学术主页</title>
+  <title>Tao Chen · Academic Homepage</title>
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="stylesheet" href="styles.css">
+  <link rel="alternate" hreflang="en" href="https://ctiwsm.github.io/ChenTao.github.io/">
+  <link rel="alternate" hreflang="zh-CN" href="https://ctiwsm.github.io/ChenTao.github.io/zh.html">
+  <link rel="alternate" hreflang="x-default" href="https://ctiwsm.github.io/ChenTao.github.io/">
+  <script src="likes.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="#main">跳转到正文</a>
+  <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <div class="page-width header-inner">
-      <a class="site-name" href="#about" aria-label="陈涛，返回简介">陈涛 <span lang="en">Tao Chen</span></a>
-      <nav aria-label="主导航"><a href="#publications">代表性论文</a><a href="#patents">专利</a></nav>
+      <a class="site-name" href="#about" aria-label="Tao Chen, back to introduction">Tao Chen <span lang="zh-CN">陈涛</span></a>
+      <nav class="section-nav" aria-label="Main navigation"><a href="#publications">Selected Publications</a><a href="#patents">Patents</a></nav>
+      <nav class="language-switch" aria-label="Language"><a href="index.html" lang="en" hreflang="en" aria-current="page">English</a><span aria-hidden="true">/</span><a href="zh.html" lang="zh-CN" hreflang="zh-CN">中文</a></nav>
     </div>
   </header>
 
   <main id="main" class="page-width">
     <section id="about" class="about" aria-labelledby="name">
       <div class="intro">
-        <h1 id="name">陈涛 <span lang="en">Tao Chen</span></h1>
-        <p class="affiliation">浙江大学机械工程学院 · 博士研究生</p>
-        <p class="bio">浙江大学机械工程博士在读。至今发表SCI、EI检索的国际知名期刊、会议论文7篇。担任PR、EAAI、KBS等多个人工智能相关领域中科院一区期刊审稿人。</p>
-        <p class="bio">主要研究方向：医学人工智能与机器人，关注舌图像辅助筛查、多源特征融合、移动机器人定位与自主导航。</p>
-        <p class="bio education"><strong>教育背景</strong><br><span class="education-date">2020.09—至今</span>，浙江大学机械工程学院，机械工程专业，博士研究生（在读）<br><span class="education-date">2016.09—2020.06</span>，浙江大学海洋学院，港口航道与海岸工程专业，获学士学位</p>
+        <h1 id="name">Tao Chen <span lang="zh-CN">陈涛</span></h1>
+        <p class="affiliation">School of Mechanical Engineering, Zhejiang University · PhD Student</p>
+        <p class="bio">I am a PhD student in Mechanical Engineering at Zhejiang University. I have published seven papers in internationally recognized journals and conference proceedings indexed in SCI or EI. I serve as a reviewer for several journals in AI and related fields classified in Zone 1 of the Chinese Academy of Sciences journal ranking, including Pattern Recognition (PR), Engineering Applications of Artificial Intelligence (EAAI), and Knowledge-Based Systems (KBS).</p>
+        <p class="bio">My research focuses on medical artificial intelligence and robotics, particularly screening assisted by tongue images, multisource feature fusion, mobile robot localization, and autonomous navigation.</p>
+        <p class="bio education"><strong>Education</strong><br><span class="education-date">2020.09–present</span> · School of Mechanical Engineering, Zhejiang University · Mechanical Engineering · <span class="education-degree">PhD student</span><br><span class="education-date">2016.09–2020.06</span> · Ocean College, Zhejiang University · Port, Waterway and Coastal Engineering · <span class="education-degree">Bachelor's degree</span></p>
         <p class="contact"><span class="email">chentaozju(at)zju.edu.cn</span><span class="contact-separator" aria-hidden="true">·</span><a href="https://github.com/CTiWSM" target="_blank" rel="noopener noreferrer">GitHub</a></p>
       </div>
-      <img class="portrait" src="assets/portrait.jpeg" alt="陈涛个人照片" width="260" height="260" fetchpriority="high">
+      <img class="portrait" src="assets/portrait.jpeg" alt="Portrait of Tao Chen" width="260" height="260" fetchpriority="high">
     </section>
 
     <section id="publications" class="content-section" aria-labelledby="publications-title">
-      <h2 id="publications-title">代表性论文</h2>
-      <p class="author-note"><sup>#</sup> 共同第一作者；<sup>*</sup> 通讯作者</p>
+      <h2 id="publications-title">Selected Publications</h2>
+      <p class="author-note"><sup>#</sup> Co-first authors; <sup>*</sup> Corresponding authors</p>
       <ol class="publication-list">
       <li>
         <article class="publication" data-paper="dualss">
-          <h3 lang="en"><a href="https://doi.org/10.1049/cit2.70174" target="_blank" rel="noopener noreferrer" aria-label="DualSS: A Dual-Diffusion Synthetic Sampling Framework for Screening Fatty Liver Severity With Class-Imbalanced Tongue Images（论文原文，新标签页）">DualSS: A Dual-Diffusion Synthetic Sampling Framework for Screening Fatty Liver Severity With Class-Imbalanced Tongue Images</a></h3>
-          <p class="authors" lang="en"><span class="author"><strong>Tao Chen</strong><sup aria-label="共同第一作者">#</sup>,</span> <span class="author">Jie Gao<sup aria-label="共同第一作者">#</sup>,</span> <span class="author">Yong Xu,</span> <span class="author">Weihong Qiu,</span> <span class="author">Kunhong Liu<sup aria-label="通讯作者">*</sup>,</span> <span class="author">Yijie Wu<sup aria-label="通讯作者">*</sup>,</span> <span class="author">Weimin Ye<sup aria-label="通讯作者">*</sup></span></p>
+          <h3 lang="en"><a href="https://doi.org/10.1049/cit2.70174" target="_blank" rel="noopener noreferrer" aria-label="DualSS: A Dual-Diffusion Synthetic Sampling Framework for Screening Fatty Liver Severity With Class-Imbalanced Tongue Images (read the paper in a new tab)">DualSS: A Dual-Diffusion Synthetic Sampling Framework for Screening Fatty Liver Severity With Class-Imbalanced Tongue Images</a></h3>
+          <p class="authors" lang="en"><span class="author"><strong>Tao Chen</strong><sup aria-label="Co-first authors">#</sup>,</span> <span class="author">Jie Gao<sup aria-label="Co-first authors">#</sup>,</span> <span class="author">Yong Xu,</span> <span class="author">Weihong Qiu,</span> <span class="author">Kunhong Liu<sup aria-label="Corresponding authors">*</sup>,</span> <span class="author">Yijie Wu<sup aria-label="Corresponding authors">*</sup>,</span> <span class="author">Weimin Ye<sup aria-label="Corresponding authors">*</sup></span></p>
           <p class="citation" lang="en"><em>CAAI Transactions on Intelligence Technology</em>, 2026.</p>
         </article>
       </li>
       <li>
         <article class="publication" data-paper="mff">
-          <h3 lang="en"><a href="https://doi.org/10.1016/j.jare.2025.10.003" target="_blank" rel="noopener noreferrer" aria-label="Accurate fatty liver disease diagnosis with a multi-source feature fusion model on the segmented tongue image dataset（论文原文，新标签页）">Accurate fatty liver disease diagnosis with a multi-source feature fusion model on the segmented tongue image dataset</a></h3>
-          <p class="authors" lang="en"><span class="author">Jie Gao<sup aria-label="共同第一作者">#</sup>,</span> <span class="author"><strong>Tao Chen</strong><sup aria-label="共同第一作者">#</sup>,</span> <span class="author">Yong Xu,</span> <span class="author">Yijie Wu,</span> <span class="author">Kunhong Liu<sup aria-label="通讯作者">*</sup>,</span> <span class="author">Weihong Qiu<sup aria-label="通讯作者">*</sup>,</span> <span class="author">Weimin Ye<sup aria-label="通讯作者">*</sup></span></p>
+          <h3 lang="en"><a href="https://doi.org/10.1016/j.jare.2025.10.003" target="_blank" rel="noopener noreferrer" aria-label="Accurate fatty liver disease diagnosis with a multi-source feature fusion model on the segmented tongue image dataset (read the paper in a new tab)">Accurate fatty liver disease diagnosis with a multi-source feature fusion model on the segmented tongue image dataset</a></h3>
+          <p class="authors" lang="en"><span class="author">Jie Gao<sup aria-label="Co-first authors">#</sup>,</span> <span class="author"><strong>Tao Chen</strong><sup aria-label="Co-first authors">#</sup>,</span> <span class="author">Yong Xu,</span> <span class="author">Yijie Wu,</span> <span class="author">Kunhong Liu<sup aria-label="Corresponding authors">*</sup>,</span> <span class="author">Weihong Qiu<sup aria-label="Corresponding authors">*</sup>,</span> <span class="author">Weimin Ye<sup aria-label="Corresponding authors">*</sup></span></p>
           <p class="citation" lang="en"><em>Journal of Advanced Research</em>, 85: 507–520, 2026.</p>
         </article>
       </li>
       <li>
         <article class="publication" data-paper="hsm">
-          <h3 lang="en"><a href="https://doi.org/10.1007/978-3-032-05182-0_26" target="_blank" rel="noopener noreferrer" aria-label="Hard Sample Mining-Based Tongue Diagnosis for Fatty Liver Disease Severity Classification（论文原文，新标签页）">Hard Sample Mining-Based Tongue Diagnosis for Fatty Liver Disease Severity Classification</a></h3>
-          <p class="authors" lang="en"><span class="author"><strong>Tao Chen</strong><sup aria-label="共同第一作者">#</sup>,</span> <span class="author">Jie Gao<sup aria-label="共同第一作者">#</sup>,</span> <span class="author">Yong Xu,</span> <span class="author">Weihong Qiu,</span> <span class="author">Yijie Wu<sup aria-label="通讯作者">*</sup>,</span> <span class="author">Weimin Ye<sup aria-label="通讯作者">*</sup>,</span> <span class="author">Kunhong Liu<sup aria-label="通讯作者">*</sup></span></p>
+          <h3 lang="en"><a href="https://doi.org/10.1007/978-3-032-05182-0_26" target="_blank" rel="noopener noreferrer" aria-label="Hard Sample Mining-Based Tongue Diagnosis for Fatty Liver Disease Severity Classification (read the paper in a new tab)">Hard Sample Mining-Based Tongue Diagnosis for Fatty Liver Disease Severity Classification</a></h3>
+          <p class="authors" lang="en"><span class="author"><strong>Tao Chen</strong><sup aria-label="Co-first authors">#</sup>,</span> <span class="author">Jie Gao<sup aria-label="Co-first authors">#</sup>,</span> <span class="author">Yong Xu,</span> <span class="author">Weihong Qiu,</span> <span class="author">Yijie Wu<sup aria-label="Corresponding authors">*</sup>,</span> <span class="author">Weimin Ye<sup aria-label="Corresponding authors">*</sup>,</span> <span class="author">Kunhong Liu<sup aria-label="Corresponding authors">*</sup></span></p>
           <p class="citation" lang="en"><em>MICCAI 2025</em>, LNCS 15974: 260–269.</p>
         </article>
       </li>
       <li>
         <article class="publication" data-paper="lidar">
-          <h3 lang="en"><a href="https://doi.org/10.1017/S026357472400198X" target="_blank" rel="noopener noreferrer" aria-label="A 2D-LiDAR-based localization method for indoor mobile robots using correlative scan matching（论文原文，新标签页）">A 2D-LiDAR-based localization method for indoor mobile robots using correlative scan matching</a></h3>
-          <p class="authors" lang="en"><span class="author">Song Du,</span> <span class="author"><strong>Tao Chen</strong>,</span> <span class="author">Zhonghui Lou,</span> <span class="author">Yijie Wu<sup aria-label="通讯作者">*</sup></span></p>
+          <h3 lang="en"><a href="https://doi.org/10.1017/S026357472400198X" target="_blank" rel="noopener noreferrer" aria-label="A 2D-LiDAR-based localization method for indoor mobile robots using correlative scan matching (read the paper in a new tab)">A 2D-LiDAR-based localization method for indoor mobile robots using correlative scan matching</a></h3>
+          <p class="authors" lang="en"><span class="author">Song Du,</span> <span class="author"><strong>Tao Chen</strong>,</span> <span class="author">Zhonghui Lou,</span> <span class="author">Yijie Wu<sup aria-label="Corresponding authors">*</sup></span></p>
           <p class="citation" lang="en"><em>Robotica</em>, 43(2): 514–541, 2025.</p>
         </article>
       </li>
       <li>
         <article class="publication" data-paper="phase">
-          <h3 lang="en"><a href="https://doi.org/10.1108/IR-07-2024-0294" target="_blank" rel="noopener noreferrer" aria-label="An efficient single-shot global localization method for indoor mobile robots using phase correlation（论文原文，新标签页）">An efficient single-shot global localization method for indoor mobile robots using phase correlation</a></h3>
-          <p class="authors" lang="en"><span class="author">Song Du,</span> <span class="author"><strong>Tao Chen</strong>,</span> <span class="author">Yijie Wu<sup aria-label="通讯作者">*</sup></span></p>
+          <h3 lang="en"><a href="https://doi.org/10.1108/IR-07-2024-0294" target="_blank" rel="noopener noreferrer" aria-label="An efficient single-shot global localization method for indoor mobile robots using phase correlation (read the paper in a new tab)">An efficient single-shot global localization method for indoor mobile robots using phase correlation</a></h3>
+          <p class="authors" lang="en"><span class="author">Song Du,</span> <span class="author"><strong>Tao Chen</strong>,</span> <span class="author">Yijie Wu<sup aria-label="Corresponding authors">*</sup></span></p>
           <p class="citation" lang="en"><em>Industrial Robot</em>, 52(3): 323–333, 2025.</p>
         </article>
       </li>
       <li>
         <article class="publication" data-paper="metamaterials">
-          <h3 lang="en"><a href="https://doi.org/10.1016/j.compstruct.2020.113053" target="_blank" rel="noopener noreferrer" aria-label="Self-adaptive mechanical metamaterials (SMM) using shape memory polymers for programmable postbuckling under thermal excitations（论文原文，新标签页）">Self-adaptive mechanical metamaterials (SMM) using shape memory polymers for programmable postbuckling under thermal excitations</a></h3>
-          <p class="authors" lang="en"><span class="author">Pengcheng Jiao<sup aria-label="通讯作者">*</sup>,</span> <span class="author"><strong>Tao Chen</strong>,</span> <span class="author">Yiwei Xie<sup aria-label="通讯作者">*</sup></span></p>
+          <h3 lang="en"><a href="https://doi.org/10.1016/j.compstruct.2020.113053" target="_blank" rel="noopener noreferrer" aria-label="Self-adaptive mechanical metamaterials (SMM) using shape memory polymers for programmable postbuckling under thermal excitations (read the paper in a new tab)">Self-adaptive mechanical metamaterials (SMM) using shape memory polymers for programmable postbuckling under thermal excitations</a></h3>
+          <p class="authors" lang="en"><span class="author">Pengcheng Jiao<sup aria-label="Corresponding authors">*</sup>,</span> <span class="author"><strong>Tao Chen</strong>,</span> <span class="author">Yiwei Xie<sup aria-label="Corresponding authors">*</sup></span></p>
           <p class="citation" lang="en"><em>Composite Structures</em>, 256: 113053, 2021.</p>
         </article>
       </li>
@@ -82,16 +87,21 @@
     </section>
 
     <section id="patents" class="content-section patents-section" aria-labelledby="patents-title">
-      <h2 id="patents-title">专利</h2>
-      <p class="section-note">以下均为已授权发明专利。</p>
+      <h2 id="patents-title">Patents</h2>
+      <p class="section-note">All patents listed below have been granted. Titles are English translations of the original Chinese titles.</p>
       <ol class="patent-list">
-        <li><h3>基于位置矢量加权积分的连续线段数控加工路径平滑方法</h3><p>CN113504764B · 2024 年授权 · 排名第二（导师第一）</p></li>
-        <li><h3>一种基于多源特征融合的舌象检测方法、设备及介质</h3><p>CN119014817B · 2025 年授权 · 排名第二</p></li>
-        <li><h3>一种基于形状记忆聚合物的结构健康监测系统</h3><p>CN111551269B · 2021 年授权 · 排名第三</p></li>
-        <li><h3>一种基于摩擦起电材料的地形监测轮胎</h3><p>CN111806166B · 2021 年授权 · 排名第三</p></li>
+        <li><h3>A method for smoothing CNC machining paths composed of consecutive line segments using weighted integration of position vectors</h3><p>CN113504764B · Granted in 2024 · Second named inventor (supervisor listed first)</p></li>
+        <li><h3>A method, device and medium for tongue image detection based on multisource feature fusion</h3><p>CN119014817B · Granted in 2025 · Second named inventor</p></li>
+        <li><h3>A structural health monitoring system based on shape memory polymers</h3><p>CN111551269B · Granted in 2021 · Third named inventor</p></li>
+        <li><h3>A terrain monitoring tire based on triboelectric materials</h3><p>CN111806166B · Granted in 2021 · Third named inventor</p></li>
       </ol>
     </section>
   </main>
-  <footer class="page-width site-footer"><span>© 2026 陈涛</span><a href="#about">返回顶部 ↑</a></footer>
+  <div class="page-width appreciation" data-likes data-lang="en">
+    <div class="likes-row"><button type="button" class="like-button" data-like-button disabled aria-pressed="false"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/></svg><span data-like-label>Like</span></button><span class="like-total">Total likes <span data-like-count>—</span></span></div>
+    <p class="like-status" data-like-status role="status" aria-live="polite"></p>
+    <noscript><p class="like-status">Enable JavaScript to view likes and leave a like.</p></noscript>
+  </div>
+  <footer class="page-width site-footer"><span>© 2026 Tao Chen</span><a href="#about">Back to top ↑</a></footer>
 </body>
 </html>

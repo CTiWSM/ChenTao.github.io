@@ -1,0 +1,11 @@
+{
+  "name": "chentao-homepage-likes-backend",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test worker.test.mjs"
+  },
+  "engines": {
+    "node": ">=24.0.0"
+  }
+}
