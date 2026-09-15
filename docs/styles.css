@@ -70,7 +70,6 @@ sup { font-size: .8em; line-height: 0; vertical-align: super; margin-left: 1px; 
 .venue-chip[data-tone="yellow"] { background: #fff6d8; border-color: #d7ae36; color: #654900; }
 .venue-chip[data-tone="green"] { background: #eaf7e8; border-color: #74b96f; color: #235d22; }
 .venue-chip[data-tone="blue"] { background: #eaf3ff; border-color: #6ea8eb; color: #0b4d89; }
-.metrics-note { font-size: 11px; line-height: 1.8; color: var(--muted); margin-top: 5px; }
 .patents-section { margin-top: 33px; padding-bottom: 35px; }
 .patent-list { margin: 23px 0 0; padding-left: 24px; }
 .patent-list > li { padding-left: 7px; margin-bottom: 21px; }

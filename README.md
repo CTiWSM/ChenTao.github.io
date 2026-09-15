@@ -2,7 +2,7 @@
 
 [访问主页](https://ctiwsm.github.io/ChenTao.github.io/)
 
-中英文静态学术主页，包含个人简介、教育背景、代表性论文与授权专利。
+中英文静态学术主页，包含个人简介、教育背景、论文与授权专利。
 
 主网址默认显示 English；[中文页面](https://ctiwsm.github.io/ChenTao.github.io/zh.html)使用独立地址，不保存语言偏好。
 
