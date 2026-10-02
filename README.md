@@ -12,6 +12,7 @@
 - `docs/zh.html`：中文页面。
 - `docs/styles.css`：电脑与手机排版。
 - `docs/likes.js`：整站点赞交互。
+- `docs/metric-effects.js`：IF≥15 边框动效的可见性与动态偏好控制。
 - `docs/assets/`：个人照片与网站图标。
 - `docs/.nojekyll`：直接发布静态文件。
 - `backend/`：Cloudflare Worker 源码、D1 初始化 SQL 与测试。
@@ -22,7 +23,9 @@
 
 论文署名中，`#` 表示同等贡献，`*` 表示通讯作者，Tao Chen 加粗。更新内容时按正式论文和授权材料核对。
 
-中文发表来源标签显示 IF、中科院大类分区和 CCF，英文显示 IF 与 JCR。指标采用经核对的本地参考数据快照，缺失项省略，不表示论文发表年度指标。标签静态显示，配色参考 Impact Overlay。
+中文发表来源标签显示 IF、中科院大类分区和 CCF，英文显示 IF 与 JCR。指标采用经核对的本地参考数据快照，缺失项省略，不表示论文发表年度指标。配色参考 Impact Overlay，IF≥15 标签增加缓慢的红金色边框流光。
+
+动效由访客浏览器运行，不请求后端或写入数据库；标签离开视口、页面进入后台时暂停，尊重“减少动态效果”设置。无 JavaScript 或所需浏览器功能时保留静态指标，打印和强制高对比度模式不显示流光。
 
 正文与语言切换无需构建步骤或 JavaScript 框架。点赞使用少量 JavaScript，通过 Cloudflare Worker 写入 D1；中英文共享累计数量。
 
