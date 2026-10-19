@@ -15,6 +15,7 @@
 - `docs/metric-effects.js`：IF≥15 边框动效的可见性与动态偏好控制。
 - `docs/assets/`：个人照片与网站图标。
 - `docs/.nojekyll`：直接发布静态文件。
+- `docs/google8081bf037f705923.html`：Google Search Console 网站所有权验证文件；验证后继续保留。
 - `backend/`：Cloudflare Worker 源码、D1 初始化 SQL 与测试。
 
 ## 更新与发布
