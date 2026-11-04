@@ -64,6 +64,8 @@ sup { font-size: .8em; line-height: 0; vertical-align: super; margin-left: 1px; 
 .authors sup { color: var(--text); }
 .citation { font-size: 13px; line-height: 1.8; color: var(--muted); margin-top: 3px; }
 .citation em { font-style: italic; }
+.paper-citation-count { white-space: nowrap; }
+.citation-sync-note { color: var(--muted); font-size: 12px; line-height: 1.8; margin-top: 6px; }
 .venue-metrics { display: inline-flex; align-items: center; flex-wrap: wrap; gap: 2px; max-width: 100%; margin: 2px 0 2px 6px; vertical-align: middle; font-family: Arial, "Microsoft YaHei", sans-serif; font-size: 12px; font-weight: 700; font-style: normal; line-height: 1.35; letter-spacing: 0; }
 .venue-chip { display: inline-block; padding: 2px 6px; border: 1px solid #c7ced8; border-radius: 5px; background: #f3f4f6; color: #4b5563; white-space: nowrap; }
 .venue-chip[data-tone="red"] { background: #fff0ed; border-color: #f08a78; color: #8a1f0d; }

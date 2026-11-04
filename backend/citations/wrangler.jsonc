@@ -1,0 +1,12 @@
+{
+  "name": "chentao-scholar-citations",
+  "main": "worker.js",
+  "compatibility_date": "2026-11-04",
+  "triggers": { "crons": ["0 0 * * *"] },
+  "d1_databases": [{
+    "binding": "DB",
+    "database_name": "chentao-homepage-likes",
+    "database_id": "87b6d88a-4ee9-4301-969a-87e7feed4da8"
+  }],
+  "observability": { "enabled": false }
+}

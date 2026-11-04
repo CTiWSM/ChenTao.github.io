@@ -13,6 +13,8 @@
 - `docs/styles.css`：电脑与手机排版。
 - `docs/likes.js`：整站点赞交互。
 - `docs/metric-effects.js`：IF≥15 边框动效的可见性与动态偏好控制。
+- `docs/citation-counts.js`：从Cloudflare读取Google Scholar被引缓存。
+- `docs/assets/citations-initial.json`：公开初始引用快照，用于本地预览及静态回退。
 - `docs/assets/`：个人照片与网站图标。
 - `docs/.nojekyll`：直接发布静态文件。
 - `docs/google8081bf037f705923.html`：Google Search Console 网站所有权验证文件；验证后继续保留。
@@ -29,5 +31,9 @@
 动效由访客浏览器运行，不请求后端或写入数据库；标签离开视口、页面进入后台时暂停，尊重“减少动态效果”设置。无 JavaScript 或所需浏览器功能时保留静态指标，打印和强制高对比度模式不显示流光。
 
 正文与语言切换无需构建步骤或 JavaScript 框架。点赞使用少量 JavaScript，通过 Cloudflare Worker 写入 D1；中英文共享累计数量。
+
+每篇论文末尾显示Google Scholar被引数和来源链接。独立Worker每日UTC00:00（北京时间08:00）通过SerpApi更新D1缓存；访客只读取缓存，不触发上游查询，也不需要每天提交Git。同步失败时保留已知快照及成功日期；空白计数和未列入Scholar档案的条目显示“—”，不伪造0。
+
+引用Worker、缓存表、配置与测试位于 `backend/citations/`；SerpApi凭据使用Cloudflare Secret配置，部署令牌和任何真实凭据不属于发布内容。
 
 同一浏览器的标识用于减少重复点赞；清除存储、更换浏览器或主动生成新标识仍可能再次点赞，因此不是严格的独立访客统计。不要在仓库中提交凭据或数据库内容。

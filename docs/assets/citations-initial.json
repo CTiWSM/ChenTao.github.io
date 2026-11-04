@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "profile_id": "krmeL-4AAAAJ",
+  "source": "Google Scholar",
+  "updated_at": "2026-11-04T06:23:55.000Z",
+  "papers": [
+    {
+      "paper": "ssrn-7600475",
+      "count": null,
+      "state": "not_in_profile",
+      "scholar_id": null,
+      "url": "https://scholar.google.com/citations?user=krmeL-4AAAAJ&hl=en"
+    },
+    {
+      "paper": "dualss",
+      "count": null,
+      "state": "blank",
+      "scholar_id": "krmeL-4AAAAJ:qjMakFHDy7sC",
+      "url": "https://scholar.google.com/citations?view_op=view_citation&user=krmeL-4AAAAJ&citation_for_view=krmeL-4AAAAJ%3AqjMakFHDy7sC&hl=en"
+    },
+    {
+      "paper": "entropy",
+      "count": null,
+      "state": "blank",
+      "scholar_id": "krmeL-4AAAAJ:2osOgNQ5qMEC",
+      "url": "https://scholar.google.com/citations?view_op=view_citation&user=krmeL-4AAAAJ&citation_for_view=krmeL-4AAAAJ%3A2osOgNQ5qMEC&hl=en"
+    },
+    {
+      "paper": "mff",
+      "count": 11,
+      "state": "available",
+      "scholar_id": "krmeL-4AAAAJ:9yKSN-GCB0IC",
+      "url": "https://scholar.google.com/scholar?hl=en&cites=10913785167945188460"
+    },
+    {
+      "paper": "hsm",
+      "count": 2,
+      "state": "available",
+      "scholar_id": "krmeL-4AAAAJ:UeHWp8X0CEIC",
+      "url": "https://scholar.google.com/scholar?hl=en&cites=10323235496880675046"
+    },
+    {
+      "paper": "lidar",
+      "count": 14,
+      "state": "available",
+      "scholar_id": "krmeL-4AAAAJ:u-x6o8ySG0sC",
+      "url": "https://scholar.google.com/scholar?hl=en&cites=4374252461501076292"
+    },
+    {
+      "paper": "phase",
+      "count": 1,
+      "state": "available",
+      "scholar_id": "krmeL-4AAAAJ:d1gkVwhDpl0C",
+      "url": "https://scholar.google.com/scholar?hl=en&cites=4887657310493561055"
+    },
+    {
+      "paper": "metamaterials",
+      "count": 22,
+      "state": "available",
+      "scholar_id": "krmeL-4AAAAJ:u5HHmVD_uO8C",
+      "url": "https://scholar.google.com/scholar?hl=en&cites=15934916321998149304"
+    }
+  ]
+}
