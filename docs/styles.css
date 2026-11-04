@@ -55,8 +55,12 @@ sup { font-size: .8em; line-height: 0; vertical-align: super; margin-left: 1px; 
 .author-note sup { font-size: 12px; margin-left: 0; }
 #publications { --publication-columns: minmax(0, 1fr) 62px 48px; --publication-gap: 20px; }
 .publication-columns-header, .publication { display: grid; grid-template-columns: var(--publication-columns); column-gap: var(--publication-gap); align-items: start; }
-.publication-columns-header { margin-top: 20px; padding-bottom: 10px; border-bottom: 1px solid var(--line); color: var(--muted); font-size: 12px; }
-.publication-columns-header > span:nth-child(n+2), .publication-citations, .publication-year { text-align: right; }
+.publication-columns-header { margin-top: 20px; padding-bottom: 10px; border-bottom: 1px solid var(--line); color: #000; font-size: 12px; font-weight: 700; }
+.publication-columns-header > :nth-child(n+2), .publication-citations, .publication-year { text-align: right; }
+.citations-sort-button { display: inline-flex; justify-self: end; align-items: center; justify-content: flex-end; gap: 2px; min-height: 24px; padding: 0; border: 0; background: transparent; color: inherit; font: inherit; white-space: nowrap; cursor: pointer; }
+.citations-sort-button:disabled { cursor: default; }
+.citations-sort-button:focus-visible { outline: 2px solid var(--link); outline-offset: 4px; border-radius: 2px; }
+.citations-sort-button [data-sort-symbol] { font-size: .9em; line-height: 1; }
 .publication-list { list-style: none; margin: 20px 0 0; padding: 0; }
 .publication-list > li { padding: 0; margin-bottom: 27px; }
 .publication-main { min-width: 0; }

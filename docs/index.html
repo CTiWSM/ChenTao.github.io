@@ -8,13 +8,13 @@
   <meta name="color-scheme" content="light">
   <title>Tao Chen · Academic Homepage</title>
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-  <link rel="stylesheet" href="styles.css?v=20261104-columns">
+  <link rel="stylesheet" href="styles.css?v=20261104-sort">
   <link rel="alternate" hreflang="en" href="https://ctiwsm.github.io/ChenTao.github.io/">
   <link rel="alternate" hreflang="zh-CN" href="https://ctiwsm.github.io/ChenTao.github.io/zh.html">
   <link rel="alternate" hreflang="x-default" href="https://ctiwsm.github.io/ChenTao.github.io/">
   <script src="likes.js" defer></script>
   <script src="metric-effects.js" defer></script>
-  <script src="citation-counts.js?v=20261104-columns" defer></script>
+  <script src="citation-counts.js?v=20261104-sort" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -49,10 +49,10 @@
     <section id="publications" data-citations-api="https://chentao-scholar-citations.c708978499.workers.dev/api/citations" class="content-section" aria-labelledby="publications-title">
       <h2 id="publications-title">Publications</h2>
       <p class="author-note"><sup>#</sup> Equal contribution; <sup>*</sup> Corresponding authors</p>
-      <div class="publication-columns-header" aria-hidden="true">
-        <span>Publication</span><span>Citations</span><span>Year</span>
+      <div class="publication-columns-header">
+        <span>Publication</span><button type="button" class="citations-sort-button" data-citations-sort aria-controls="publication-list" aria-pressed="false" aria-label="Sort citations descending" title="Sort citations descending" disabled>Citations<span data-sort-symbol aria-hidden="true">↕</span></button><span>Year</span>
       </div>
-      <ul class="publication-list" role="list">
+      <ul class="publication-list" id="publication-list" role="list">
       <li>
         <article class="publication" data-paper="ssrn-7600475" data-status="preprint">
           <div class="publication-main">

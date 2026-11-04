@@ -7,22 +7,45 @@ const publicRoot = new URL(existsSync(new URL('../../citation-counts.js', import
 const script = readFileSync(new URL('citation-counts.js', publicRoot), 'utf8');
 const snapshot = JSON.parse(readFileSync(new URL('assets/citations-initial.json', publicRoot), 'utf8'));
 
-async function preview(payload, { fail = false, hostname = 'ctiwsm.github.io' } = {}) {
+async function preview(payload, { fail = false, hostname = 'ctiwsm.github.io', pending = false,
+  numericInitial = false, language = 'zh-CN' } = {}) {
   const items = snapshot.papers.map((row) => ({ dataset: { citationsPaper: row.paper },
-    textContent: 'initial ' + row.paper, href: row.url, title: '', attributes: {},
+    textContent: numericInitial ? (row.count === null ? '—' : String(row.count)) : 'initial ' + row.paper,
+    href: row.url, title: '', attributes: {},
     setAttribute(name, value) { this.attributes[name] = value; } }));
+  const initialRows = items.map((item) => ({ item, querySelector: () => item }));
+  const list = { children: initialRows.slice(), appendChild(row) {
+    this.children = this.children.filter((existing) => existing !== row); this.children.push(row);
+  } };
+  const symbol = { textContent: '↕' };
+  const button = { disabled: true, attributes: { 'aria-pressed': 'false' },
+    querySelector: () => symbol, listeners: {},
+    addEventListener(name, callback) { this.listeners[name] = callback; },
+    setAttribute(name, value) { this.attributes[name] = value; },
+    click() { this.listeners.click(); } };
   const section = { dataset: { citationsApi: 'https://api.example.test/api/citations' },
-    querySelectorAll: () => items };
+    querySelectorAll: () => items,
+    querySelector: (selector) => selector === '.publication-list' ? list : selector === '[data-citations-sort]' ? button : null };
   let requested;
-  const context = { document: { documentElement: { lang: 'zh-CN' }, querySelector: () => section },
-    window: { location: { hostname } }, URL, Date, Intl, AbortController,
+  let requests = 0;
+  let resolveFetch;
+  const events = {};
+  const context = { document: { documentElement: { lang: language }, querySelector: () => section },
+    window: { location: { hostname }, addEventListener(name, callback) { events[name] = callback; } }, URL, Date, Intl, AbortController,
     setTimeout: () => 1, clearTimeout: () => {},
-    fetch: async (url) => { requested = url; if (fail) throw new Error('offline');
+    fetch: async (url) => { requested = url; requests++; if (fail) throw new Error('offline');
+      if (pending) return new Promise((resolve) => { resolveFetch = resolve; });
       return { ok: true, json: async () => payload }; } };
   vm.runInNewContext(script, context);
   await new Promise(setImmediate);
   await new Promise(setImmediate);
-  return { items, requested };
+  return { items, requested, button, symbol, list, initialRows,
+    order: () => list.children.map((row) => row.item.dataset.citationsPaper),
+    requests: () => requests, pageshow: (persisted) => events.pageshow({ persisted }),
+    deliver: async (value) => {
+      resolveFetch({ ok: true, json: async () => value });
+      await new Promise(setImmediate); await new Promise(setImmediate);
+    } };
 }
 
 test('citation column contains only a number or dash and preserves accessible labels', async () => {
@@ -64,4 +87,58 @@ test('network failure preserves the previously rendered values', async () => {
 test('local preview reads the public initial JSON without consuming an API search', async () => {
   const result = await preview(snapshot, { hostname: '127.0.0.1' });
   assert.equal(result.requested, 'assets/citations-initial.json');
+});
+
+test('first click sorts numerically descending and the second restores exact original order', async () => {
+  const result = await preview(snapshot);
+  const original = result.order();
+  assert.equal(result.button.disabled, false);
+  result.button.click();
+  assert.deepEqual(result.order(), ['metamaterials', 'lidar', 'mff', 'hsm', 'phase', 'ssrn-7600475', 'dualss', 'entropy']);
+  assert.equal(result.symbol.textContent, '↓');
+  assert.equal(result.button.attributes['aria-pressed'], 'true');
+  assert.equal(new Set(result.list.children).size, 8);
+  assert.ok(result.initialRows.every((row) => result.list.children.includes(row)));
+  result.button.click();
+  assert.deepEqual(result.order(), original);
+  assert.equal(result.symbol.textContent, '↕');
+  assert.equal(result.button.attributes['aria-pressed'], 'false');
+  assert.equal(result.requests(), 1);
+});
+
+test('ties retain original positions and a real zero precedes all missing values', async () => {
+  const data = structuredClone(snapshot);
+  data.papers.find((row) => row.paper === 'mff').count = 14;
+  data.papers.find((row) => row.paper === 'dualss').count = 0;
+  const result = await preview(data);
+  result.button.click();
+  assert.deepEqual(result.order(), ['metamaterials', 'mff', 'lidar', 'hsm', 'phase', 'dualss', 'ssrn-7600475', 'entropy']);
+});
+
+test('sorting works before fetch and remains descending when fresh data arrives', async () => {
+  const result = await preview(snapshot, { pending: true, numericInitial: true });
+  const original = result.order();
+  result.button.click();
+  assert.equal(result.order()[0], 'metamaterials');
+  const data = structuredClone(snapshot);
+  data.papers.find((row) => row.paper === 'mff').count = 30;
+  await result.deliver(data);
+  assert.equal(result.order()[0], 'mff');
+  assert.equal(result.symbol.textContent, '↓');
+  result.button.click();
+  assert.deepEqual(result.order(), original);
+  assert.equal(result.items.find((row) => row.dataset.citationsPaper === 'mff').textContent, '30');
+});
+
+test('page/history restoration and a new language page both reset sorting', async () => {
+  const result = await preview(snapshot);
+  const original = result.order();
+  result.button.click();
+  result.pageshow(true);
+  assert.deepEqual(result.order(), original);
+  assert.equal(result.button.attributes['aria-pressed'], 'false');
+  assert.equal(result.symbol.textContent, '↕');
+  const english = await preview(snapshot, { language: 'en' });
+  assert.deepEqual(english.order(), original);
+  assert.equal(english.symbol.textContent, '↕');
 });

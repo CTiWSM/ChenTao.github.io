@@ -8,13 +8,13 @@
   <meta name="color-scheme" content="light">
   <title>陈涛 · 个人学术主页</title>
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-  <link rel="stylesheet" href="styles.css?v=20261104-columns">
+  <link rel="stylesheet" href="styles.css?v=20261104-sort">
   <link rel="alternate" hreflang="en" href="https://ctiwsm.github.io/ChenTao.github.io/">
   <link rel="alternate" hreflang="zh-CN" href="https://ctiwsm.github.io/ChenTao.github.io/zh.html">
   <link rel="alternate" hreflang="x-default" href="https://ctiwsm.github.io/ChenTao.github.io/">
   <script src="likes.js" defer></script>
   <script src="metric-effects.js" defer></script>
-  <script src="citation-counts.js?v=20261104-columns" defer></script>
+  <script src="citation-counts.js?v=20261104-sort" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">跳转到正文</a>
@@ -49,10 +49,10 @@
     <section id="publications" data-citations-api="https://chentao-scholar-citations.c708978499.workers.dev/api/citations" class="content-section" aria-labelledby="publications-title">
       <h2 id="publications-title">论文</h2>
       <p class="author-note"><sup>#</sup> 同等贡献；<sup>*</sup> 通讯作者</p>
-      <div class="publication-columns-header" aria-hidden="true">
-        <span>论文信息</span><span>引用量</span><span>年份</span>
+      <div class="publication-columns-header">
+        <span>论文信息</span><button type="button" class="citations-sort-button" data-citations-sort aria-controls="publication-list" aria-pressed="false" aria-label="按引用量降序排列" title="按引用量降序排列" disabled>引用量<span data-sort-symbol aria-hidden="true">↕</span></button><span>年份</span>
       </div>
-      <ul class="publication-list" role="list">
+      <ul class="publication-list" id="publication-list" role="list">
       <li>
         <article class="publication" data-paper="ssrn-7600475" data-status="preprint">
           <div class="publication-main">
