@@ -50,7 +50,8 @@ h1 span { color: #53606a; font-family: Georgia, "Times New Roman", serif; font-s
 .portrait { display: block; width: 140px; height: auto; aspect-ratio: 2 / 3; object-fit: contain; margin: 5px auto 0; }
 .content-section { padding-top: 16px; }
 h2 { font-size: 24px; line-height: 1.5; font-weight: 600; letter-spacing: 1px; color: var(--ink); padding-bottom: 11px; border-bottom: 1px solid var(--line); }
-.author-note, .section-note { color: var(--muted); font-size: 12px; margin-top: 13px; line-height: 1.8; }
+.section-note { color: var(--muted); font-size: 12px; margin-top: 13px; line-height: 1.8; }
+.author-note { color: var(--muted); font-size: 12px; font-weight: 400; margin-left: 10px; line-height: 1.8; }
 sup { font-size: .8em; line-height: 0; vertical-align: super; margin-left: 1px; }
 .author-note sup { font-size: 12px; margin-left: 0; }
 #publications { --publication-columns: minmax(0, 1fr) 62px 48px; --publication-gap: 20px; }
@@ -170,7 +171,8 @@ sup { font-size: .8em; line-height: 0; vertical-align: super; margin-left: 1px; 
   .bio { font-size: 14px; line-height: 1.95; }
   .contact { font-size: 12px; gap: 12px; margin-top: 15px; }
   h2 { font-size: 23px; padding-bottom: 10px; }
-  .author-note, .section-note { font-size: 12px; margin-top: 12px; }
+  .section-note { font-size: 12px; margin-top: 12px; }
+  .author-note { font-size: 11px; margin-left: 6px; }
   #publications { --publication-columns: minmax(0, 1fr) 54px 36px; --publication-gap: 10px; }
   .publication-columns-header { font-size: 11px; margin-top: 18px; }
   .publication-list { margin-top: 18px; padding: 0; }
