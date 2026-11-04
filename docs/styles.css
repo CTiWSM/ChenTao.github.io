@@ -53,9 +53,15 @@ h2 { font-size: 24px; line-height: 1.5; font-weight: 600; letter-spacing: 1px; c
 .author-note, .section-note { color: var(--muted); font-size: 12px; margin-top: 13px; line-height: 1.8; }
 sup { font-size: .8em; line-height: 0; vertical-align: super; margin-left: 1px; }
 .author-note sup { font-size: 12px; margin-left: 0; }
-.publication-list { margin: 24px 0 0; padding-left: 24px; }
-.publication-list > li { padding-left: 7px; margin-bottom: 27px; }
-.publication-list > li::marker { color: #5c6872; font-size: 13px; font-variant-numeric: tabular-nums; }
+#publications { --publication-columns: minmax(0, 1fr) 62px 48px; --publication-gap: 20px; }
+.publication-columns-header, .publication { display: grid; grid-template-columns: var(--publication-columns); column-gap: var(--publication-gap); align-items: start; }
+.publication-columns-header { margin-top: 20px; padding-bottom: 10px; border-bottom: 1px solid var(--line); color: var(--muted); font-size: 12px; }
+.publication-columns-header > span:nth-child(n+2), .publication-citations, .publication-year { text-align: right; }
+.publication-list { list-style: none; margin: 20px 0 0; padding: 0; }
+.publication-list > li { padding: 0; margin-bottom: 27px; }
+.publication-main { min-width: 0; }
+.publication-citations, .publication-year { padding-top: 2px; font-size: 14px; line-height: 1.6; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.publication-year { color: var(--text); }
 .publication h3 { font-size: 16px; line-height: 1.6; font-weight: 500; letter-spacing: .05px; }
 .publication h3 a { color: var(--link); }
 .authors { font-size: 14px; line-height: 1.9; margin-top: 5px; }
@@ -64,8 +70,6 @@ sup { font-size: .8em; line-height: 0; vertical-align: super; margin-left: 1px; 
 .authors sup { color: var(--text); }
 .citation { font-size: 13px; line-height: 1.8; color: var(--muted); margin-top: 3px; }
 .citation em { font-style: italic; }
-.paper-citation-count { white-space: nowrap; }
-.citation-sync-note { color: var(--muted); font-size: 12px; line-height: 1.8; margin-top: 6px; }
 .venue-metrics { display: inline-flex; align-items: center; flex-wrap: wrap; gap: 2px; max-width: 100%; margin: 2px 0 2px 6px; vertical-align: middle; font-family: Arial, "Microsoft YaHei", sans-serif; font-size: 12px; font-weight: 700; font-style: normal; line-height: 1.35; letter-spacing: 0; }
 .venue-chip { display: inline-block; padding: 2px 6px; border: 1px solid #c7ced8; border-radius: 5px; background: #f3f4f6; color: #4b5563; white-space: nowrap; }
 .venue-chip[data-tone="red"] { background: #fff0ed; border-color: #f08a78; color: #8a1f0d; }
@@ -163,9 +167,11 @@ sup { font-size: .8em; line-height: 0; vertical-align: super; margin-left: 1px; 
   .contact { font-size: 12px; gap: 12px; margin-top: 15px; }
   h2 { font-size: 23px; padding-bottom: 10px; }
   .author-note, .section-note { font-size: 12px; margin-top: 12px; }
-  .publication-list { margin-top: 23px; padding-left: 20px; }
-  .publication-list > li { padding-left: 5px; margin-bottom: 27px; }
-  .publication-list > li::marker { font-size: 12px; }
+  #publications { --publication-columns: minmax(0, 1fr) 54px 36px; --publication-gap: 10px; }
+  .publication-columns-header { font-size: 11px; margin-top: 18px; }
+  .publication-list { margin-top: 18px; padding: 0; }
+  .publication-list > li { padding: 0; margin-bottom: 27px; }
+  .publication-citations, .publication-year { font-size: 12px; }
   .publication h3 { font-size: 15px; line-height: 1.65; }
   .authors { font-size: 13px; line-height: 1.9; margin-top: 7px; }
   .citation { font-size: 12px; line-height: 1.85; margin-top: 5px; }

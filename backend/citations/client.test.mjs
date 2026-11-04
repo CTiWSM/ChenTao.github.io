@@ -9,10 +9,10 @@ const snapshot = JSON.parse(readFileSync(new URL('assets/citations-initial.json'
 
 async function preview(payload, { fail = false, hostname = 'ctiwsm.github.io' } = {}) {
   const items = snapshot.papers.map((row) => ({ dataset: { citationsPaper: row.paper },
-    textContent: 'initial ' + row.paper, href: row.url, title: '' }));
-  const status = { textContent: 'initial timestamp', dataset: {} };
+    textContent: 'initial ' + row.paper, href: row.url, title: '', attributes: {},
+    setAttribute(name, value) { this.attributes[name] = value; } }));
   const section = { dataset: { citationsApi: 'https://api.example.test/api/citations' },
-    querySelector: () => status, querySelectorAll: () => items };
+    querySelectorAll: () => items };
   let requested;
   const context = { document: { documentElement: { lang: 'zh-CN' }, querySelector: () => section },
     window: { location: { hostname } }, URL, Date, Intl, AbortController,
@@ -22,18 +22,18 @@ async function preview(payload, { fail = false, hostname = 'ctiwsm.github.io' } 
   vm.runInNewContext(script, context);
   await new Promise(setImmediate);
   await new Promise(setImmediate);
-  return { items, status, requested };
+  return { items, requested };
 }
 
-test('client displays real zero separately from blank and updates the source date', async () => {
+test('citation column contains only a number or dash and preserves accessible labels', async () => {
   const data = structuredClone(snapshot);
   data.papers.find((row) => row.paper === 'dualss').count = 0;
   data.papers.find((row) => row.paper === 'dualss').state = 'available';
   const result = await preview(data);
-  assert.equal(result.items.find((row) => row.dataset.citationsPaper === 'metamaterials').textContent, '被引 22');
-  assert.equal(result.items.find((row) => row.dataset.citationsPaper === 'dualss').textContent, '被引 0');
-  assert.equal(result.items.find((row) => row.dataset.citationsPaper === 'entropy').textContent, '被引 —');
-  assert.equal(result.status.dataset.citationsTimestamp, data.updated_at);
+  assert.equal(result.items.find((row) => row.dataset.citationsPaper === 'metamaterials').textContent, '22');
+  assert.equal(result.items.find((row) => row.dataset.citationsPaper === 'dualss').textContent, '0');
+  assert.equal(result.items.find((row) => row.dataset.citationsPaper === 'entropy').textContent, '—');
+  assert.equal(result.items.find((row) => row.dataset.citationsPaper === 'metamaterials').attributes['aria-label'], 'Google Scholar 引用量：22');
 });
 
 test('incomplete responses cannot partially replace the dated initial snapshot', async () => {
@@ -41,7 +41,6 @@ test('incomplete responses cannot partially replace the dated initial snapshot',
   data.papers.pop();
   const result = await preview(data);
   assert.ok(result.items.every((row) => row.textContent.startsWith('initial ')));
-  assert.equal(result.status.textContent, 'initial timestamp');
 });
 
 test('unsafe source links and invalid numeric types are rejected before updating any row', async () => {
@@ -57,10 +56,9 @@ test('unsafe source links and invalid numeric types are rejected before updating
   }
 });
 
-test('network failure preserves the previously rendered values and date', async () => {
+test('network failure preserves the previously rendered values', async () => {
   const result = await preview(snapshot, { fail: true });
   assert.ok(result.items.every((row) => row.textContent.startsWith('initial ')));
-  assert.equal(result.status.textContent, 'initial timestamp');
 });
 
 test('local preview reads the public initial JSON without consuming an API search', async () => {
